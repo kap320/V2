@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "types": ["vidstack/globals"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["*"],
+      "components/*": ["components/*"],
+      "pages/*": ["pages/*"],
+      "styles/*": ["styles/*"],
+      "utils/*": ["utils/*"],
+      "lib/*": ["lib/*"],
+      "hooks/*": ["hooks/*"]
+  }
+  }
+}
