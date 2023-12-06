@@ -25,7 +25,7 @@ const Home = ({ topAnime, recentEpisodes }) => {
       setRecentEpisodes(recentEpisodes.recentEpisodes)
       setHasNextPage(recentEpisodes.recentEpisodes?.length ? true : false)
       setPage(page + 1)
-      setLoading(false)
+      setLoading(true)
     }
   }
 

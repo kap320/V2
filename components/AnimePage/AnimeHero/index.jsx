@@ -1,13 +1,10 @@
 
 import { FaPlay } from 'react-icons/fa'
-import {poppinsBold,poppinsMedium} from 'utils/Fonts/fonts'
-import {Search} from 'components'
+import { poppinsBold, poppinsMedium } from 'utils/Fonts/fonts'
+import { Search } from 'components'
 import router from 'next/router'
 
-
-
-const InfoCard = ({type, title})=>{
-  
+const InfoCard = ({ type, title }) => {
   return (
     <div style={{
       boxShadow: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
@@ -18,14 +15,14 @@ const InfoCard = ({type, title})=>{
         {type}
       </p>
       <p className={`${poppinsBold.className}  text-white text-[14px] md:text-[24px]`}>
-       {title}
+        {title}
       </p>
     </div>
   )
 }
 
-const Play = ({epi,animeId})=>{
-  const handleGoto = ()=>{
+const Play = ({ epi, animeId }) => {
+  const handleGoto = () => {
     router.push(`/watch/${animeId}/${epi}`)
   }
   return (
@@ -42,11 +39,11 @@ export function getYoutubeId(url) {
 }
 
 
-const AnimeHero = ({anime,animeId}) => {
+const AnimeHero = ({ anime, animeId }) => {
   anime = anime?.animeDetails
   return (
     <div className='w-[100vw] transition-all duration-300 items-center h-[50vh] flex flex-col justify-between ' style={{
-      backgroundImage: `url(${anime.trailer?`https://i.ytimg.com/vi_webp/${getYoutubeId(anime.trailer)}/sddefault.webp`:anime?.imageUrl})`,
+      backgroundImage: `url(${anime.trailer ? `https://i.ytimg.com/vi_webp/${getYoutubeId(anime.trailer)}/sddefault.webp` : anime?.imageUrl})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -55,13 +52,13 @@ const AnimeHero = ({anime,animeId}) => {
     }}>
 
 
-      <Search/>
+      <Search />
       <div className='w-[90vw]'>
         <p style={{
           textShadow: '0px 0px 10px rgba(0,0,0,1)'
         }} className={`${poppinsBold.className} transition-all duration-300 text-[38px] md:text-[56px] tracking-tight font-bold  text-white`}>
           {
-            anime?.name?.length> 35 ? anime?.name?.slice(0,35).toUpperCase()+'...' : anime?.name?.toUpperCase()
+            anime?.name?.length > 35 ? anime?.name?.slice(0, 35).toUpperCase() + '...' : anime?.name?.toUpperCase()
           }
         </p>
         <div className='flex flex-wrap mb-[2rem] gap-[10px]'>
@@ -78,17 +75,17 @@ const AnimeHero = ({anime,animeId}) => {
           }
         </div>
         <div className='w-[90vw] bg-[] flex flex-wrap justify-center gap-[40px]  mb-[-3rem]  '>
-            <div className='md:w-[200px] md:inline-block md:mt-[0] mt-[2rem] w-[300px] flex justify-center'>
-              <Play animeId={animeId} epi={anime?.episode_id?.[0]?.episodeId} />
-            </div>
-            <InfoCard title={anime?.status} type='AUDIO STATUS' />
-            <InfoCard title={anime?.totalEpisodes} type='EPISODES NUM' />
-            <InfoCard title={anime?.released} type='RELEASE DATE' />
-            <InfoCard title={anime?.type?.toLowerCase().replace('anime','').toUpperCase()} type='ANIME TYPE' />
-          
+          <div className='md:w-[200px] md:inline-block md:mt-[0] mt-[2rem] w-[300px] flex justify-center'>
+            <Play animeId={animeId} epi={anime?.episode_id?.[0]?.episodeId} />
+          </div>
+          <InfoCard title={anime?.status} type='AUDIO STATUS' />
+          <InfoCard title={anime?.totalEpisodes} type='EPISODES NUM' />
+          <InfoCard title={anime?.released} type='RELEASE DATE' />
+          <InfoCard title={anime?.type?.toLowerCase().replace('anime', '').toUpperCase()} type='ANIME TYPE' />
+
         </div>
 
-        
+
 
       </div>
     </div>
