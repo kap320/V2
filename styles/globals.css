@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
   overflow-x: hidden;
   background-color: #05161e;
 }
 
-.index .slick-list{
+.index .slick-list {
   overflow: visible !important;
 }

@@ -25,7 +25,9 @@ const Home = ({ topAnime, recentEpisodes }) => {
       setRecentEpisodes(recentEpisodes.recentEpisodes)
       setHasNextPage(recentEpisodes.recentEpisodes?.length ? true : false)
       setPage(page + 1)
-      setLoading(true)
+      setLoading(false)
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
@@ -42,6 +44,9 @@ const Home = ({ topAnime, recentEpisodes }) => {
       setHasNextPage(recentEpisodes.recentEpisodes?.length ? true : false)
       setPage(page - 1)
       setLoading(false)
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
     }
   }
 

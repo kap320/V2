@@ -1,7 +1,7 @@
 import React from 'react'
-import {poppinsBold,poppinsMedium} from 'utils/Fonts/fonts'
+import { poppinsMedium } from 'utils/Fonts/fonts'
 import Slider from 'react-slick'
-import {AnimeCard} from 'components'
+import { AnimeCard } from 'components'
 
 const settings = {
   dots: false,
@@ -48,36 +48,36 @@ const settings = {
         //center
         centerMode: true,
         centerPadding: '20px',
-        
+
       }
     },
   ]
 
 }
 
-const TrendingWeek = ({topAnimes, title}) => {
+const TrendingWeek = ({ topAnimes, title }) => {
   return (
     <div className='w-[100vw] flex flex-col justify-center items-center'>
-    <div className='w-[90vw] overflow-x-hidden h-[350px] mt-[6rem]'>
-      <p className={`${poppinsMedium.className} text-white text-[20px] font-bold`}>
-        {title || '🔥 TRENDING ANIME'}
-      </p>
-      <div className=' mt-[1rem] w-[90vw] '>
-        <Slider {...settings}>
-        {
-          topAnimes.map((anime, index) => {
-            const details = anime
-            return (
-              <div key={details?.id}>
-                <AnimeCard id={details?.id} image={details?.imgUrl} title={details?.title} />
-              </div>
-            )
-          })
-        }
-        </Slider>
+      <div className='w-[90vw] overflow-x-hidden h-[350px] mt-[6rem]'>
+        <p className={`${poppinsMedium.className} text-white text-[20px] font-bold`}>
+          {title || '🔥 TRENDING ANIME'}
+        </p>
+        <div className=' mt-[1rem] w-[90vw] '>
+          <Slider {...settings}>
+            {
+              topAnimes.map((anime, index) => {
+                const details = anime
+                return (
+                  <div key={details?.id}>
+                    <AnimeCard id={details?.id} image={details?.imgUrl} title={details?.title} />
+                  </div>
+                )
+              })
+            }
+          </Slider>
+        </div>
       </div>
     </div>
-  </div>
   )
 }
 

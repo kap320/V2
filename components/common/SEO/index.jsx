@@ -2,7 +2,7 @@ import React from "react"
 import Head from "next/head"
 
 export default function SEO({
-  author = "Dishant Sharma",
+  author = "Kibieptr",
   meta,
   title = "Lynnflix and Chill: Where Anime Lovers Unite!"
 }) {
@@ -24,7 +24,7 @@ export default function SEO({
       content: `website`
     },
   ]
-  .concat(meta)
+    .concat(meta)
   return (
     <Head>
       <title>{title}</title>

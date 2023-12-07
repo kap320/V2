@@ -82,9 +82,9 @@ query Episodes($animeDetailsId: ID) {
 const GET_SEARCH_ANIME = gql`
 query AnimeSearch($animeSearchId: ID) {
   animeSearch(id: $animeSearchId) {
-    imgUrl
     id
-    title  
+    imgUrl
+    title
   }
 }
 `

@@ -14,11 +14,9 @@ const Search = () => {
   }
 
   useEffect(() => {
-    //delayed search
-
     if (search.length === 0) {
-      setResult([])
-      return
+      setResult([]);
+      return;
     }
 
     const delayDebounceFn = setTimeout(() => {
@@ -26,18 +24,26 @@ const Search = () => {
         client.query({
           query: GET_SEARCH_ANIME,
           variables: {
-            animeSearchId: search
-          }
-        }).then(res => {
-          console.log(res.data.animeSearch)
-          setResult(res.data.animeSearch)
+            animeSearchId: search,
+          },
         })
-      }
-    }
-      , 500)
-    return () => clearTimeout(delayDebounceFn)
+          .then(res => {
+            console.log("GraphQL response:", res);
 
-  }, [search])
+            // Check if res.data.animeSearch is an array before using map
+            const animeSearchData = Array.isArray(res.data?.animeSearch) ? res.data.animeSearch : [];
+            setResult(animeSearchData);
+          })
+          .catch(error => {
+            console.error("GraphQL error:", error.message);
+            // Handle the error here if needed
+            setResult([]); // Set result to an empty array in case of an error
+          });
+      }
+    }, 500);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [search]);
 
   return (
     <div>
